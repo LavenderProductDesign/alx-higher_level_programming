@@ -1,16 +1,9 @@
 #!/usr/bin/python3
-import sys
-
-
-def main(argv):
-
-    result = 0
-
-    for i, x in enumerate(argv[1:], 1):
-        result += int(x)
-
-    print("{:d}".format(result))
-
 if __name__ == "__main__":
     import sys
-    main(sys.argv)
+    args = sys.argv
+    add_len = len(args)-1
+    add = 0
+    for i in range(1, (add_len+1)):
+        add = add + int(args[i])
+    print("{:d}".format(add))
