@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-'''Module for saving argv info via json to file.'''
-
-
-from sys import argv
-
+"""7-add_item.py"""
+import sys
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
-MyList = argv[1:]
+
+# load existing list from filename
 try:
-    my_obj = load_from_json_file(filename)
-    my_obj += MyList
-    save_to_json_file(my_obj, filename)
-except:
-    my_obj = MyList
-    save_to_json_file(my_obj, filename)
+    result = load_from_json_file(filename)
+except Exception:
+    result = []
+
+result += sys.argv[1:]
+
+# write new list to filename
+save_to_json_file(result, filename)
