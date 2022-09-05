@@ -6,6 +6,8 @@ const args = process.argv.slice(2).map((x) => {
 
 if (args.length > 1) {
   args.sort();
-  nextMax = args[args.length - 2];
+  nextMax = args[args.length - 2]
+  console.log(nextMax);
+} else {
+  console.log(nextMax);
 }
-console.log(nextMax);
