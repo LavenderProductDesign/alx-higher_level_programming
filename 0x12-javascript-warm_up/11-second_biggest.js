@@ -1,13 +1,12 @@
 #!/usr/bin/node
-let nextMax = 0;
-const args = process.argv.slice(2).map((x) => {
+let args = process.argv.slice(2).map((x) => {
   return parseInt(x);
 });
 
-if (args.length > 1) {
-  args.sort();
-  nextMax = args[args.length - 2]
-  console.log(nextMax);
+if (args.length <= 1) {
+  console.log(0);
 } else {
-  console.log(nextMax);
+  console.log(args.sort((a, b) => {
+    return b - a;
+  })[1]);
 }
